@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.dao.EmpDao">
+    <select id="alllist" resultType="Emp">
+        select * from emp
+    </select>
+
+    <select id="seldept" resultType="map">
+        select * from dept
+    </select>
+
+    <insert id="addemp">
+        insert into emp values (null,#{empname},#{sex},#{age},#{des},#{deptno},#{phone})
+    </insert>
+
+    <select id="selbyid" resultType="Emp">
+        select * from emp where empno=#{empno}
+    </select>
+
+    <update id="updemp" parameterType="Emp">
+        update emp set empname=#{empname},sex=#{sex},age=#{age},des=#{des},deptno=#{deptno},phone=#{phone} where empno=#{empno}
+    </update>
+
+    <delete id="delemp">
+        delete from emp where empno=#{empno}
+    </delete>
+</mapper>

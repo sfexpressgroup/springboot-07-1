@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/emp/upd}" method="post">
+    <input type="hidden" name="empno" th:value="${emp.empno}"/>
+    用户名: <input type="text" name="empname" th:value="${emp.empname}"/><br/>
+    性别: <input type="text" name="sex" th:value="${emp.sex}"/><br/>
+    年龄:<input type="text" name="age" th:value="${emp.age}"/><br/>
+    简介:<input type="text" name="des" th:value="${emp.des}"/><br/>
+    电话:<input type="text" name="phone" th:value="${emp.phone}"/><br/>
+    <select name="deptno">
+        <option th:each="d:${dept}" th:value="${d.deptno}" th:text="${d.dname}" th:selected="${emp.deptno==d.deptno}"></option>
+    </select><br/>
+    <input type="submit" value="提交"/>
+</form>
+</body>
+</html>

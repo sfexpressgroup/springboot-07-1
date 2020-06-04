@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a th:href="@{/emp/toadd}">添加</a>
+
+<table  align="center" bgcolor="#8a2be2">
+    <tr align="center"  bgcolor="white" style="width: 100px" >
+        <td></td>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>简介</td>
+        <td>部门编号</td>
+        <td>操作</td>
+    </tr>
+    <tr th:each="l:${list}" align="center"  bgcolor="white" style="width: 100px">
+        <td><input type="checkbox" name="empno" th:value="${l.empno}"/></td>
+        <td th:text="${l.empno}">1000</td>
+        <td th:text="${l.empname}">张三</td>
+        <td th:text="${l.age}">20</td>
+        <td th:text="${l.sex}">男</td>
+        <td th:text="${l.des}">哈哈哈</td>
+        <td th:text="${l.deptno}">哈哈哈</td>
+        <td><a th:href="@{/emp/toupd(empno=${l.empno})}">修改</a>
+            <a th:href="@{/emp/del(empno=${l.empno})}">删除</a></td>
+    </tr>
+</table>
+</body>
+</html>
